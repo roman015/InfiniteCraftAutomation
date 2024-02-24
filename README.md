@@ -7,32 +7,21 @@ Automated it in C# because I can. Find below the javascript version if you just 
 ## Javascript version
 
 ```
-let maxElementReachedForElement = {};
-let totalElements = 0;
 let firstElement = 0;
-let secondElement = 0;
+let secondElement = 1;
 
 setInterval(function() {
-		document.getElementsByClassName('mobile-item')[firstElement].getElementsByClassName('item')[0].click();
-		document.getElementsByClassName('mobile-item')[secondElement].getElementsByClassName('item')[0].click();
-		totalElements = document.getElementsByClassName('mobile-item').length;
+    let mobileItems = document.getElementsByClassName('mobile-item');
+    if (mobileItems.length > 0) {
+        mobileItems[firstElement].getElementsByClassName('item')[0].click();
+        mobileItems[secondElement].getElementsByClassName('item')[0].click();
+        let totalElements = mobileItems.length;
+        firstElement = (firstElement + 1) % totalElements;
+        secondElement = (secondElement + 1) % totalElements;
+        document.title = firstElement + '+' + secondElement + '|' + totalElements;
+    }
+}, 500);
 
-		secondElement = (secondElement + 1) % totalElements;
-
-		if (secondElement == 0) {
-			maxElementReachedForElement[firstElement] = totalElements;	
-			if (Object.keys(maxElementReachedForElement).some(item => maxElementReachedForElement[item] < totalElements)) {
-				let prevStart = Object.keys(maxElementReachedForElement).find(item => maxElementReachedForElement[item] < totalElements);
-				firstElement = prevStart;
-				secondElement = maxElementReachedForElement[prevStart]; // Start from previous end
-			} else {
-				firstElement = (firstElement + 1) % totalElements;
-				secondElement = firstElement; // No need to repeat the previous combinations.
-			}
-		}
-
-		document.title = firstElement + '+' + secondElement + '|' + totalElements;
-}, 500); // TODO : Find a way other than delay
 ```
 
 ### Minified Javascript
