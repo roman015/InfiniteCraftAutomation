@@ -1,5 +1,7 @@
 **⚠️ Code no longer works as website's UI has changed ⚠️**
 
+**ℹ️ Feel free to submit a pull request ℹ️**
+
 # InfiniteCraftAutomation
 
 Saw https://neal.fun/infinite-craft/.
