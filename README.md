@@ -1,3 +1,5 @@
+**⚠️ Code no longer works as website's UI has changed ⚠️**
+
 # InfiniteCraftAutomation
 
 Saw https://neal.fun/infinite-craft/.
